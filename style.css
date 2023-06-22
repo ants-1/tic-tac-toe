@@ -1,0 +1,140 @@
+:root {
+  --red: #ff0000;
+  --green: #008000;
+  --light-grey: #e7e7e7;
+  --dark-blue: #000078;
+  --white: #ffffff;
+  --black: #000000;
+
+  --m: 30px;
+  --board-h: 500px;
+  --board-w: 500px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--m);
+  margin-bottom: var(--m);
+}
+
+.player-board {
+  display: flex;
+  margin-bottom: var(--m);
+  color: var(--white);
+}
+
+.player-one,
+.player-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  opacity: 0.2;
+  height: 100px;
+  width: 150px;
+}
+
+.player-one {
+  background-color: var(--green);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.player-two {
+  background-color: var(--red);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.active {
+  opacity: 0.85;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: var(--light-grey);
+  height: var(--board-h);
+  width: var(--board-w);
+  margin-bottom: var(--m);
+}
+
+.board > div {
+  border: 1px solid var(--black);
+}
+
+.board > div:hover {
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 68px;
+  width: calc(var(--board-w) / 3);
+  height: calc(var(--board-h) / 3);
+}
+
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--white);
+  width: 300px;
+  height: 200px;
+  padding: 30px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#game-msg {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.reset {
+  padding: 10px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+  background-color: var(--dark-blue);
+}
+
+.reset:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
